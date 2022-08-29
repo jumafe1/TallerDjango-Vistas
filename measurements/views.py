@@ -15,7 +15,7 @@ def measurements_view(request):
         if id:
             measurement_dto = mea.get_measurement(id)
             measurement = serializers.serialize('json', [measurement_dto,])
-            return HttpResponse(measurement, 'aplication/json')
+            return HttpResponse(measurement, 'application/json')
         else:
             measurements_dto = mea.get_measurements()
             measurements = serializers.serialize('json', measurements_dto)
