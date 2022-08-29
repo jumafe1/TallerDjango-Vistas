@@ -22,6 +22,7 @@ def variables_view(request):
         variable = serializers.serialize('json', [variable_dto,])
         return HttpResponse(variable, 'application/json')
 
+
 @csrf_exempt
 def variable_view(request, pk):
     if request.method == 'GET':
