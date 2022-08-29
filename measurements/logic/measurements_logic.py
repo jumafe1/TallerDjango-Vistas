@@ -1,3 +1,4 @@
+from tkinter import Variable
 from ..models import Measurement
 
 def get_measurements ():
@@ -9,13 +10,16 @@ def get_measurement(var_pk):
     return measurement
 
 def create_measurement(var):
-    measurement = Measurement(name=var["name"])
+    measurement = Measurement(variable=var["variable"], value = var["value"] , unit =  var["unit"], place = var["place"] )
     measurement.save()
     return measurement
 
 def update_measurement( var_pk, new_var):
     measurement = get_measurement(var_pk)
-    measurement.name = new_var["name"]
+    measurement.variable = new_var["variable"]
+    measurement.value = new_var["value"]
+    measurement.unit = new_var["unit"]
+    measurement.place = new_var["place"]
     measurement.save()
     return measurement
 
