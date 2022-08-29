@@ -3,6 +3,8 @@ from django.db import models
 from variables.models import Variable
 
 class Measurement(models.Model):
+
+    id = models.IntegerField(primary_key= True, auto_created= True)
     variable = models.ForeignKey(Variable, on_delete=models.CASCADE, default=None)
     value = models.FloatField(null=True, blank=True, default=None)
     unit = models.CharField(max_length=50)
